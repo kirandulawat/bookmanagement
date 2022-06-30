@@ -12,9 +12,15 @@ export class AppComponent {
 
   constructor(private book: DataService) { }
   addbook = new FormGroup({
-    name: new FormControl(''),
-    authorname: new FormControl('')
+    name: new FormControl('', [Validators.required]),
+    authorname: new FormControl('', [Validators.required])
   });
+  get name() {
+    return this.addbook.get('name');
+  }
+  get authorname() {
+    return this.addbook.get('authorname');
+  }
 
   SaveData() {
     // console.log(this.addbook.value);
