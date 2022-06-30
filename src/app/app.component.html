@@ -1,3 +1,4 @@
+<div class="book">
 <h1>
   {{title}}
 </h1>
@@ -6,15 +7,17 @@
   <div class="mb-3">
     <label class="form-label">Book name</label>
     <input type="text" class="form-control" formControlName="name" placeholder="enter book name">
-
+<span style="color:red" *ngIf="name && name.invalid && name.touched">book name is invalid</span>
   </div>
   <div class="mb-3">
     <label class="form-label">Author name</label>
     <input type="text" class="form-control" formControlName="authorname" placeholder="enter author name">
+<span style="color:red" *ngIf="authorname && authorname.invalid && authorname.touched">author name is
+        invalid</span>
 
   </div>
 
-  <button type="submit" class="btn btn-primary">Add Book</button>
+  <button [disabled]="addbook.invalid" type="submit" class="btn btn-primary">Add Book</button>
 </form>
 
 <table class="table">
@@ -43,4 +46,5 @@
       </td>
     </tr>
   </tbody>
+  </div>
 </table>
